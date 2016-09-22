@@ -1,3 +1,7 @@
+'''
+represents a Trie at root
+- contains method to add words to the trie
+'''
 class Trie:
     def __init__(self):
         self.root = TrieNode()
@@ -10,13 +14,20 @@ class Trie:
             cur = cur.children[character]
         cur.word = word
 
-
+'''
+node in Trie
+- word is not None if node represents a word
+- children dictionary
+    key is next letter in word
+    value is the next TrieNode for that letter
+'''
 class TrieNode:
     def __init__(self):
         self.word = None
         self.children = dict()
 
 
+# Returns a trie of words in boggle_dict.txt
 def build_trie():
     trie = Trie()
     with open("boggle_dict.txt", "r") as file:
