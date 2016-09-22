@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="BoggleSolverApp">
+<script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="{{url_for('static', filename='App.js')}}"></script>
+<head>
+    <title>Boggle Solver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body ng-controller="BoggleSolverController">
+<div class="container">
+    <h1>Boggle Solver</h1>
+    <div class="row">
+        <div class="col-md-1">
+            <p>Boggle Size:</p>
+        </div>
+        <div class="col-md-1">
+            <select class="form-control" style="width:60px" ng-model="boardSize" ng-change="random(boardSize)">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-success" ng-click="solve(board)">Solve</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-primary" ng-click="random(boardSize)">Random</button>
+        </div>
+    </div>
+    {% raw %}
+    <div class="row">
+        <div class="col-md-5">
+            <table class="table table-bordered">
+                <tbody>
+                <tr ng-repeat="row in board">
+                    <td ng-repeat="element in row track by $index" align="center">{{ element }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-5">
+            <p ng-show="word_list">Words Found:</p>
+            <li style="float:left;margin:3px;" class="list-group-item" ng-repeat="word in word_list">{{ word }}</li>
+        </div>
+    </div>
+    {% endraw %}
+</div>
+</body>
+</html>
