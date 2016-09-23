@@ -1,6 +1,9 @@
 # boggle-solver-flask
 boggle solver built on Flask, Angular JS, Bootstrap
 
+# Demo:
+I have a demo running on a digital ocean instance. Try it out: http://159.203.4.156/
+
 # Summary:
 I wrote a boggle solver in Python and wanted to see how easily I could build a web app using Flask, Angular JS and Bootstrap.
 The Flask backend acts as REST endpoints to get random boards and solutions to the board while the frontend uses Angular to make requests to the backend.
